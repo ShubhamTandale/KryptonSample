@@ -100,7 +100,7 @@
                     android:inputType="textPassword"
                     android:drawableTint="@color/colorPrimary"
                     android:hint="Password"
-                    android:textColor="@color/color_black"/>
+                    android:textColor="@color/color_black" />
             </LinearLayout>
 
             <!--Login Button-->
