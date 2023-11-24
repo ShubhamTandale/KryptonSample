@@ -12,12 +12,14 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DecimalFormat;
 
-public class LoginActivity extends Activity implements UserLoginService.UserLoginListener {
+public class LoginActivity extends AppCompatActivity implements UserLoginService.UserLoginListener {
 
 
     private EditText passwordView, userName;

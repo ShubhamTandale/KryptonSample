@@ -1,10 +1,11 @@
 package com.example.kryptolib;
 
 
-import android.app.Activity;
 import android.os.Bundle;
 
-public class MainDashboardActivity extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainDashboardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

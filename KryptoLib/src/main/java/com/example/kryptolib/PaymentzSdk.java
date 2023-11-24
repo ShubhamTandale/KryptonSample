@@ -7,7 +7,7 @@ import android.provider.Settings;
 public class PaymentzSdk {
 
 
-    public String login(Context context, String walletOwnerId,String token){
+    public static String login(Context context, String walletOwnerId,String token){
 
         if (!walletOwnerId.isEmpty() || !token.isEmpty()){
             Constants.WALLET_OWNER_ID = walletOwnerId;
