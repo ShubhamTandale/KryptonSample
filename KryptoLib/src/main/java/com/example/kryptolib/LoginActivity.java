@@ -91,6 +91,7 @@ public class LoginActivity extends AppCompatActivity implements UserLoginService
                 deviceDetails.put("ip","IP");
                 deviceDetails.put("location",("latitude:"+0.0000 +","+"longitude:" +0.0000));
                 jsonObject.put("deviceDetails",deviceDetails);
+                System.out.println("LoginRequest: "+ jsonObject);
                 new UserLoginService().execute(String.valueOf(jsonObject), this);
 
             } catch (JSONException e) {
