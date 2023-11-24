@@ -9,6 +9,8 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -23,7 +25,7 @@ public class LoginActivity extends AppCompatActivity implements UserLoginService
 
 
     private EditText passwordView, userName;
-
+    private Button loginBtn;
     private String freememory;
     private String density;
 
@@ -32,7 +34,7 @@ public class LoginActivity extends AppCompatActivity implements UserLoginService
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
+        loginBtn = (Button) findViewById(R.id.loginButton);
         userName = (EditText) findViewById(R.id.mTextMobile);
         passwordView = (EditText) findViewById(R.id.inputPassword);
 
@@ -52,15 +54,20 @@ public class LoginActivity extends AppCompatActivity implements UserLoginService
         int dpiClassification = dm.densityDpi;
         density = String.valueOf(dpiClassification);
 
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userLogin();
+            }
+        });
 
     }
 
     public void userLogin() {
 
+        System.out.println("userLogin");
 
-
-            String countryCode = "91";
-            countryCode = countryCode.replace("+", "");
+        String countryCode = "91";
             try {
 
                 JSONObject jsonObject = new JSONObject();
@@ -87,13 +94,14 @@ public class LoginActivity extends AppCompatActivity implements UserLoginService
                 new UserLoginService().execute(String.valueOf(jsonObject), this);
 
             } catch (JSONException e) {
-                Log.e("LoginActivity", e.getLocalizedMessage());
+                System.out.println("LoginActivity: "+ e.getLocalizedMessage());
             }
         }
 
 
     @Override
     public void onLoginSuccessful() {
+        System.out.println("Login Successful");
         Intent intent = new Intent(LoginActivity.this, MainDashboardActivity.class);
         startActivity(intent);
         finish();
@@ -101,7 +109,7 @@ public class LoginActivity extends AppCompatActivity implements UserLoginService
 
     @Override
     public void onLoginFailed() {
-
+        System.out.println("Login Failed");
     }
 
     @Override
